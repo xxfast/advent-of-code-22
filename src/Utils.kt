@@ -2,10 +2,17 @@ import java.io.File
 import java.math.BigInteger
 import java.security.MessageDigest
 
+
 /**
  * Reads lines from the given input txt file.
  */
-fun readInput(name: String) = File("src", "$name.txt")
+fun readText(fileName: String) = File("src", "$fileName.txt")
+    .readText()
+
+/**
+ * Reads lines from the given input txt file.
+ */
+fun readLines(fileName: String) = File("src", "$fileName.txt")
     .readLines()
 
 /**

@@ -1,9 +1,13 @@
+package day06
+
+import readLines
+
 fun main() {
   fun part(inputs: List<String>, size: Int): List<Int> = inputs
     .map { input -> input.windowed(size).indexOfFirst { it.toSet().size == size } + size }
 
-  val testInput: List<String> = readLines("Day06_test")
-  val input: List<String> = readLines("Day06")
+  val testInput: List<String> = readLines("day06/test.txt")
+  val input: List<String> = readLines("day06/input.txt")
 
   check(part(testInput, 4) == listOf(7, 5, 6, 10, 11))
   println(part(input, 4))

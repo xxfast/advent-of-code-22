@@ -6,13 +6,13 @@ import java.security.MessageDigest
 /**
  * Reads lines from the given input txt file.
  */
-fun readText(fileName: String) = File("src", "$fileName.txt")
+fun readText(fileName: String) = File("src", fileName)
     .readText()
 
 /**
  * Reads lines from the given input txt file.
  */
-fun readLines(fileName: String) = File("src", "$fileName.txt")
+fun readLines(fileName: String) = File("src", fileName)
     .readLines()
 
 /**

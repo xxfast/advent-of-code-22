@@ -1,3 +1,7 @@
+package day03
+
+import readLines
+
 fun main() {
 
   fun Sequence<Set<Char>>.scored() = this
@@ -16,11 +20,11 @@ fun main() {
     .scored()
 
   // test if implementation meets criteria from the description, like:
-  val testInput: List<String> = readLines("Day03_test")
+  val testInput: List<String> = readLines("day03/test.txt")
   check(part1(testInput) == 157)
   check(part2(testInput) == 70)
 
-  val input: List<String> = readLines("Day03")
+  val input: List<String> = readLines("day03/input.txt")
   println(part1(input))
   println(part2(input))
 }

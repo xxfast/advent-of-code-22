@@ -1,5 +1,8 @@
-import Hand.*
-import Outcome.*
+package day02
+
+import day02.Hand.*
+import day02.Outcome.*
+import readLines
 
 enum class Hand { Rock, Paper, Scissors; }
 enum class Outcome { Loss, Draw, Win }
@@ -58,11 +61,11 @@ fun main() {
     .sumOf { (elf, outcome) -> handFor(outcome, with = elf).score + outcome.score }
 
   // test if implementation meets criteria from the description, like:
-  val testInput: List<String> = readLines("Day02_test")
+  val testInput: List<String> = readLines("day02/test.txt")
   check(part1(testInput) == 15)
   check(part2(testInput) == 12)
 
-  val input: List<String> = readLines("Day02")
+  val input: List<String> = readLines("day02/input.txt")
 
   check(part1(input) == 14069)
   check(part2(input) == 12411)

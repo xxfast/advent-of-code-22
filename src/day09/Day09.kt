@@ -54,14 +54,14 @@ fun main() {
   fun part1(inputs: List<String>): Int = Rope(2).move(inputs.moves).tail.visited.count()
   fun part2(inputs: List<String>): Int = Rope(10).move(inputs.moves).tail.visited.count()
 
-  val testInput: List<String> = readLines("day09/Day09_Test")
+  val testInput: List<String> = readLines("day09/test1.txt")
   check(part1(testInput) == 13)
   check(part2(testInput) == 1)
 
-  val input: List<String> = readLines("day09/Day09")
+  val input: List<String> = readLines("day09/input.txt")
   check(part1(input) == 6266)
 
-  val testInput2: List<String> = readLines("day09/Day09_Test2")
+  val testInput2: List<String> = readLines("day09/test2.txt")
   check(part2(testInput2) == 36)
   check(part2(input) == 2369)
 }

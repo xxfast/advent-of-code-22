@@ -1,3 +1,7 @@
+package day08
+
+import readLines
+
 typealias Grid = List<List<Int>>
 
 val List<String>.grid: Grid get() = this.map { line -> line.toList().map { it.digitToInt() } }
@@ -40,8 +44,8 @@ fun main() {
     .flatten()
     .max()
 
-  val testInput: List<String> = readLines("Day08_test")
-  val input: List<String> = readLines("Day08")
+  val testInput: List<String> = readLines("day08/test.txt")
+  val input: List<String> = readLines("day08/input.txt")
 
   check(part1(testInput.grid) == 21)
   check(part1(input.grid) == 1825)

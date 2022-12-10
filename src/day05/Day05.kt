@@ -1,3 +1,7 @@
+package day05
+
+import readText
+
 typealias Crate = Char
 typealias Stack = MutableList<Crate>
 
@@ -84,8 +88,8 @@ fun main() {
     .joinToString("")
 
   // test if implementation meets criteria from the description, like:
-  val testInput: String = readText("Day05_test")
-  val input: String = readText("Day05")
+  val testInput: String = readText("day05/test.txt")
+  val input: String = readText("day05/input.txt")
   check(part1(testInput) == "CMZ")
   check(part2(testInput) == "MCD")
 

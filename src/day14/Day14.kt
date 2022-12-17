@@ -1,45 +1,14 @@
 package day14
 
+import geometry.*
 import readLines
-import kotlin.math.abs
-import kotlin.math.roundToInt
-import kotlin.math.sqrt
 
-typealias Point = Pair<Int, Int>
-typealias Vector = Pair<Int, Int>
-typealias Path = List<Point>
-
-val Point.x: Int get() = first
-val Point.y: Int get() = second
-
-infix fun Point.towards(other: Point): Vector = (other.x - this.x) to (other.y - this.y)
-
-fun Vector.normalised(): Vector {
-  val length = sqrt((x * x + y * y).toFloat())
-  return (x / length).roundToInt() to (y / length).roundToInt()
-}
-
-operator fun Vector.times(magnitude: Int): Vector = (x * magnitude) to (y * magnitude)
-operator fun Point.plus(other: Point): Point = (this.x + other.x) to (this.y + other.y)
-
-operator fun Point.rangeTo(other: Point): Path = buildList {
-  add(this@rangeTo)
-  val direction = this@rangeTo towards other
-  repeat(maxOf(abs(direction.x), abs(direction.y))) { step ->
-    add(this@rangeTo + direction.normalised() * (step + 1))
-  }
-}
-
-val Set<Point>.minX: Int get() = minOf { it.x }
-val Set<Point>.maxX: Int get() = maxOf { it.x }
-val Set<Point>.minY: Int get() = minOf { it.y }
-val Set<Point>.maxY: Int get() = maxOf { it.y }
-
-val SOURCE: Point = 500 to 0
-val FALL_ORDER: List<Vector> = listOf(0 to +1, -1 to +1, +1 to +1)
+val SOURCE: Point = 500L to 0L
+val FALL_ORDER: List<Vector> = listOf(0L to +1L, -1L to +1L, +1L to +1L)
 
 data class Simulation(val source: Point = SOURCE, val sand: MutableSet<Point> = mutableSetOf(), val rock: Set<Point>)
-val Simulation.points: Set<Pair<Int, Int>> get() = sand + rock
+
+val Simulation.points get() = sand + rock
 
 fun Simulation(paths: List<Path>): Simulation = Simulation(
   rock = paths
@@ -53,7 +22,7 @@ fun Simulation.flow(from: Point) = from
   .filterNot { point -> point in this.rock || point.second >= rock.maxY + 2 }
 
 fun format(input: List<String>): List<Path> = input
-  .map { line -> line.split("->").map { point -> point.trim().split(",").let { (x, y) -> x.toInt() to y.toInt() } } }
+  .map { line -> line.split("->").map { point -> point.trim().split(",").let { (x, y) -> x.toLong() to y.toLong() } } }
 
 operator fun Simulation.contains(point: Point): Boolean = point.y < rock.maxY
 
